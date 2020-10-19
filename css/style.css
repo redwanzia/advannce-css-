@@ -42,6 +42,9 @@ body {
 .logo {
 	height: 25px;
 }
+.logo:hover {
+	animation: moveInRight 1s ease;
+}
 
 .text-box {
 	position: absolute;
@@ -53,12 +56,20 @@ body {
 .heading-primary {
 	color: #fff;
 	text-transform: uppercase;
+
+	/* backface-visibility: hidden; */
 }
 .heading-primary-main {
 	display: block;
 	font-size: 60px;
 	font-weight: 400;
 	letter-spacing: 35px;
+
+	animation-name: moveInLeft;
+	animation-duration: 5s;
+	/* animation-delay: 3s; */
+	/* animation-iteration-count: 3; */
+	animation-timing-function: ease-in;
 }
 
 .heading-primary-sub {
@@ -66,4 +77,33 @@ body {
 	font-size: 20px;
 	font-weight: 700;
 	letter-spacing: 17.5px;
+	animation: moveInRight 5s ease-out;
+}
+
+@keyframes moveInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+	80% {
+		transform: translateX(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+	80% {
+		transform: translateX(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
 }
